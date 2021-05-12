@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 400px;
+            height: 300px;
+        }
+        .main canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="playerWrapper"></div>
+        <button id="btn">play</button>
+    </div>
+    <script>
+        var btn = document.getElementById("btn");
+        var wrapper = document.getElementById("playerWrapper");
+        var { RtmpPlayer } = window.require("..");
+        var player;
+        btn.addEventListener('click', function() {
+            if(!player) {
+                player = new RtmpPlayer(wrapper);
+                player.play("rtmp://58.200.131.2:1935/livetv/cctv1");
+                btn.innerHTML = "pause";
+            }
+            else {
+                player.destroy();
+                player = undefined;
+                btn.innerHTML = "play";
+            }
+        })
+    </script>
+</body>
+</html>

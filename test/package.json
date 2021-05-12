@@ -1,0 +1,40 @@
+{
+  "main": "main.js",
+  "name": "test",
+  "scripts": {
+    "build:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=build --electron-version=5.0.13",
+    "build:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=build --electron-version=5.0.13"
+  },
+  "homepage": ".",
+  "default_locale": "en",
+  "version": "0.06.117",
+  "marketString": "",
+  "description": "",
+  "chromium-args": "--ignore-certificate-errors --enable-usermedia-screen-capturing --ignore-gpu-blacklist --disable-gpu",
+  "single-instance": false,
+  "node-remote": true,
+  "oemName": "plaso",
+  "keywords": [
+    "Plaso"
+  ],
+  "window": {
+    "title": "SDK",
+    "icon": "icon.png",
+    "toolbar": false,
+    "transparent": false,
+    "show": true,
+    "width": 1180,
+    "height": 730,
+    "min_width": 1180,
+    "min_height": 730,
+    "frame": true
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "@plasosdk/rtmpplayer": "file:../../git/rtmpplayer",
+    "fluent-ffmpeg": "^2.1.2",
+    "flv.js": "^1.5.0"
+  }
+}
